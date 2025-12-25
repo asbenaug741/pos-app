@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sale_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->foreignId('sugar_id')->constrained()->onDelete('cascade');
-            $table->foreignId('ice_id')->constrained()->onDelete('cascade');
+            $table->enum('ice', ['no ice', 'less ice', 'normal']);
+            $table->enum('sugar', ['no sugar', 'less sugar', 'normal']);
             $table->integer('qty');
             $table->integer('price');
             $table->integer('subtotal');
